@@ -6,4 +6,7 @@ def test1():
     expected=[1,2,3,3.5,4,5]
     assert actual == expected
 
-    
+def test2():
+    actual=insertShiftArray([1,2,4,5],3.5)
+    expected=[1,2,3.5,4,5]
+    assert actual == expected
