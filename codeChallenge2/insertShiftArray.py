@@ -6,7 +6,6 @@ def insertShiftArray(arr,num):
            resArr[i]=arr[i]
           elif i== (len(arr)/2) + 0.5:
                 resArr[i]=num
-                i-=1
           else:
              resArr[i]=arr[i-1]
         else:
