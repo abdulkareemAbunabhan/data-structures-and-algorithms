@@ -15,6 +15,33 @@ class Linked_list:
          current=current.next
 
         return False
+    
+    def append(self,value):
+       node=Node(value)
+       if(self.head == None):
+          self.head=node
+       else:
+          current=self.head
+          while(current.next):
+           current=current.next   
+          current.next=node
+          
+    def insert_before(self,value,newValue):
+       node=Node(newValue)
+       current=self.head
+       if(value==current):
+          node.next=current.next
+          current.next=node
+       else:
+         while(current.next):
+             if(current.next.value==value):
+                node.next=current.next
+                current.next = node
+                break
+             current=current.next
+         
+        
+          
                   
     def __str__(self):
         output=""
