@@ -4,34 +4,18 @@ class Linked_list:
         self.head=None
 
     def insert(self,value):
-      node = Node("A") 
-      if self.head is None:
-           self.head=node
-      else:
-         current = self.head
-         while current.next is not None:
-             current=current.next
-         current.next=node             
-
-    def includes(self,key):
+      node = Node(value)             
+      node.next=self.head
+      self.head=node
+    def includes(self,value):
         current=self.head
-        if(current is None):
-            return "Not found"
-        elif(current is not None):
-            if(current == key):
-                self.head=current.next
-                current = None
-                return  True 
-        else:
-            while(current is not Node):
-                if current.value==key
-                break
-                    
+        while(current != None):
+         if(current.value==value):
+            return True
+         current=current.next
 
-
-
-
-
+        return False
+                  
     def __str__(self):
         output=""
 
@@ -43,4 +27,4 @@ class Linked_list:
                 output+=f'{current.value} --> '
                 current=current.next
             output+=" None"
-        return output               
+        return(output)                
