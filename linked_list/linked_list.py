@@ -7,6 +7,7 @@ class Linked_list:
       node = Node(value)             
       node.next=self.head
       self.head=node
+      
     def includes(self,value):
         current=self.head
         while(current != None):
@@ -23,25 +24,57 @@ class Linked_list:
        else:
           current=self.head
           while(current.next):
-           current=current.next   
+             current=current.next   
           current.next=node
           
-    def insert_before(self,value,newValue):
-       node=Node(newValue)
-       current=self.head
-       if(value==current):
-          node.next=current.next
+    def insert_before(self, value, newValue):
+     node = Node(newValue)
+     if self.head is None:
+        self.head = node
+        return
+
+     if self.head.value == value:
+        node.next = self.head
+        self.head = node
+        return
+
+     current = self.head
+     while current.next is not None:
+        if current.next.value == value:
+            node.next = current.next
+            current.next = node
+            return
+        current = current.next
+     raise ValueError(f"{value} not found in linked list")
+         
+    def insert_after(self,value,newValue):
+       node = Node(newValue)
+       if(value is None):
+          self.append(node)    
+          return
+       current =self.head
+       while(current.value is not value):
+          current=current.next
+       if(current.next is None):
           current.next=node
        else:
-         while(current.next):
-             if(current.next.value==value):
-                node.next=current.next
-                current.next = node
-                break
-             current=current.next
-         
-        
-          
+          prev=current        
+          node.next=current.next
+          prev.next=node
+    def delete_node(self,value):
+       if(self.includes(value)):
+         current=self.head
+         if(current.value is value):
+            self.head=current.next
+            return
+         while(current.next.value is not value):
+            current=current.next
+         prev=current
+         current=current.next
+         prev.next=current.next
+       else:
+          return False    
+
                   
     def __str__(self):
         output=""

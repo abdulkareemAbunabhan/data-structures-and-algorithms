@@ -3,7 +3,7 @@ from linked_list import Linked_list
 
 def test_add():
    ll=Linked_list()
-   ll.append("d")
+   ll.insert("d")
    excepted = 'd -->  None'
    actual = str(ll)
    assert actual == excepted
@@ -31,6 +31,14 @@ def test_before1():
    ll.append("b")
    ll.insert_before("a","v")
    excepted = 'v --> a --> b -->  None'
+   actual = str(ll)
+   assert actual == excepted
+def test_before2():
+   ll=Linked_list()
+   ll.append("a")
+   ll.append("b")
+   ll.insert_before("b","v")
+   excepted = 'a --> v --> b -->  None'
    actual = str(ll)
    assert actual == excepted
 
