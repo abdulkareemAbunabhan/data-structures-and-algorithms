@@ -83,8 +83,25 @@ class Linked_list:
          while(k != counter):
             current = current.next
             counter+=1
-         return current.value   
-                  
+         return current.value  
+
+    #Challenge 8 LinkedList Zip:    
+    def zipLists(list1, list2):
+        current1 = list1.head
+        current2 = list2.head
+        nList=Linked_list()
+        while True:
+            if current1 :
+                nList.append(current1.value)
+                current1=current1.next
+            if current2:
+                nList.append(current2.value)
+                current2=current2.next
+
+            if not current1 and not current2:
+                break
+
+        return nList             
     def __str__(self):
         output=""
 
