@@ -68,6 +68,7 @@ class Linked_list:
           node.next=current.next
           prev.next=node
     def delete_node(self,value):
+       """this method deletes the node that match the given value if there is no match will return false"""
        if(self.includes(value)):
          current=self.head
          if(current.value is value):
