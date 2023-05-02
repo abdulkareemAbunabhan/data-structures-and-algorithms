@@ -19,6 +19,69 @@ class Linked_list:
          current=current.next
 
         return False
+    
+    def append(self,value):
+       """this method used to add a node at the end of a linked list"""
+       node=Node(value)
+       if(self.head == None):
+          self.head=node
+       else:
+          current=self.head
+          while(current.next):
+             current=current.next   
+          current.next=node
+          
+    def insert_before(self, value, newValue):
+     """this method used to add a node before specefic node in the linked list"""
+     node = Node(newValue)
+     if self.head is None:
+        self.head = node
+        return
+
+     if self.head.value == value:
+        node.next = self.head
+        self.head = node
+        return
+
+     current = self.head
+     while current.next is not None:
+        if current.next.value == value:
+            node.next = current.next
+            current.next = node
+            return
+        current = current.next
+     raise ValueError(f"{value} not found in linked list")
+         
+    def insert_after(self,value,newValue):
+       """this method used to add a node after specefic node in the linked list"""
+       node = Node(newValue)
+       if(value is None):
+          self.append(node)    
+          return
+       current =self.head
+       while(current.value is not value):
+          current=current.next
+       if(current.next is None):
+          current.next=node
+       else:
+          prev=current        
+          node.next=current.next
+          prev.next=node
+    def delete_node(self,value):
+       """this method deletes the node that match the given value if there is no match will return false"""
+       if(self.includes(value)):
+         current=self.head
+         if(current.value is value):
+            self.head=current.next
+            return
+         while(current.next.value is not value):
+            current=current.next
+         prev=current
+         current=current.next
+         prev.next=current.next
+       else:
+          return False    
+
                   
     def __str__(self):
         output=""
