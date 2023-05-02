@@ -6,7 +6,7 @@ insert, includes and to_string
 
 ## Whiteboard Process
 
-![whiteBoard](array_binary_search.png)
+![whiteBoard](./linked_list_includes.png)
 
 ## Approach & Efficiency
 
