@@ -4,11 +4,14 @@ class Linked_list:
         self.head=None
 
     def insert(self,value):
+      """this method used to insert a method at the beguning of linked list"""
       node = Node(value)             
       node.next=self.head
       self.head=node
       
     def includes(self,value):
+        """this method used to check if there the value given is included in the linked
+        nods or not"""
         current=self.head
         while(current != None):
          if(current.value==value):
@@ -18,6 +21,7 @@ class Linked_list:
         return False
     
     def append(self,value):
+       """this method used to add a node at the end of a linked list"""
        node=Node(value)
        if(self.head == None):
           self.head=node
@@ -28,6 +32,7 @@ class Linked_list:
           current.next=node
           
     def insert_before(self, value, newValue):
+     """this method used to add a node before specefic node in the linked list"""
      node = Node(newValue)
      if self.head is None:
         self.head = node
@@ -48,6 +53,7 @@ class Linked_list:
      raise ValueError(f"{value} not found in linked list")
          
     def insert_after(self,value,newValue):
+       """this method used to add a node after specefic node in the linked list"""
        node = Node(newValue)
        if(value is None):
           self.append(node)    
@@ -62,6 +68,7 @@ class Linked_list:
           node.next=current.next
           prev.next=node
     def delete_node(self,value):
+       """this method deletes the node that match the given value if there is no match will return false"""
        if(self.includes(value)):
          current=self.head
          if(current.value is value):
