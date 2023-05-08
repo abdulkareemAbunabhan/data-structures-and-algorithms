@@ -78,9 +78,15 @@ class Linked_list:
        if (self.head is None):
           return "Failed"
        else:
-         counter = 1
+         counter = 0
          current = self.head
-         while(k != counter):
+         while(current):
+            current = current.next
+            counter+=1
+         current=self.head   
+         target=counter-k
+         counter=0   
+         while(counter !=target):
             current = current.next
             counter+=1
          return current.value   
