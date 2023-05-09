@@ -84,24 +84,6 @@ class Linked_list:
             current = current.next
             counter+=1
          return current.value  
-
-    #Challenge 8 LinkedList Zip:    
-    def zipLists(list1, list2):
-        current1 = list1.head
-        current2 = list2.head
-        nList=Linked_list()
-        while True:
-            if current1 :
-                nList.append(current1.value)
-                current1=current1.next
-            if current2:
-                nList.append(current2.value)
-                current2=current2.next
-
-            if not current1 and not current2:
-                break
-
-        return nList             
     def __str__(self):
         output=""
 
@@ -113,4 +95,22 @@ class Linked_list:
                 output+=f'{current.value} --> '
                 current=current.next
             output+=" None"
-        return(output)                
+        return(output)
+      
+    #Challenge 8 LinkedList Zip:    
+def zip_lists(ll1, ll2):
+    """this function is for zipping two linked list togther"""
+    zipped_list = Linked_list()
+    current1 = ll1.head
+    current2 = ll2.head
+
+    while current1 is not None or current2 is not None:
+        if current1 is not None:
+            zipped_list.append(current1.value)
+            current1 = current1.next
+
+        if current2 is not None:
+            zipped_list.append(current2.value)
+            current2 = current2.next
+
+    return zipped_list                
