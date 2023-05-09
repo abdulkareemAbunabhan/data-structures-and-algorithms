@@ -94,13 +94,6 @@ class Linked_list:
          while(current):
             current = current.next
             counter+=1
-         current=self.head   
-         target=counter-k
-         counter=0   
-         while(counter !=target):
-            current = current.next
-            counter+=1
-            current = current.next
          if(k>counter):
             return "Linked list is shorter than u think"   
          target= counter - k 

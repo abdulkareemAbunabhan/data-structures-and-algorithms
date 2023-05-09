@@ -1,4 +1,4 @@
-# Insert Shif Array
+# stack queue pseudo
 
 Create a new class called pseudo queue.
 Do not use an existing Queue.
