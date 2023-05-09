@@ -89,9 +89,16 @@ class Linked_list:
        if (self.head is None):
           return "Empty"
        else:
-         counter = 1
+         counter = 0
          current = self.head
-         while(current.next):
+         while(current):
+            current = current.next
+            counter+=1
+         current=self.head   
+         target=counter-k
+         counter=0   
+         while(counter !=target):
+            current = current.next
             counter+=1
             current = current.next
          if(k>counter):
@@ -102,7 +109,8 @@ class Linked_list:
          while(counter != target):
             current=current.next
             counter+=1   
-         return current.value   
+         return current.value 
+  
     def reverser(self):
        current=self.head
        prev=self.head
