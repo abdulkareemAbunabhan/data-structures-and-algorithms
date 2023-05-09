@@ -34,3 +34,16 @@ def test_3():
    actual=tester.enqueue("5")
    expected="5 --> 4 --> 3 --> 2 --> 1 --> None"
    assert actual == expected
+
+def test_4():
+    que=PseudoQueue()
+    que.enqueue("1")
+    actual=que.dequeue()   
+    expected="1"
+    assert actual==expected
+
+def test_5():
+    emp=PseudoQueue()
+    actual=emp.dequeue()
+    expected="Empty queue"
+    assert actual==expected

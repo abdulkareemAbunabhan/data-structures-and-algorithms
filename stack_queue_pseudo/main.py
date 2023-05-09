@@ -1,7 +1,6 @@
 from stack_queue_pseud import PseudoQueue
 
 que=PseudoQueue()
-
 que.enqueue("1")
 que.enqueue("1")
 que.enqueue("1")

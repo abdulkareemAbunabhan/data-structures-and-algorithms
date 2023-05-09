@@ -1,7 +1,7 @@
 from Node import Node
 from stack import Stack
 class PseudoQueue:
-
+    """this class initiated with two stacks and got three methods which is the enqueue, the dequeue and __str__"""
     def __init__(self):
         front_stack=Stack()
         back_stack=Stack()
@@ -9,6 +9,7 @@ class PseudoQueue:
         self.back_stack=back_stack
 
     def enqueue(self,value):
+        """this method is used to add a node to the queue"""
         node=Node(value)    
         if(self.front_stack.top):
             if(self.back_stack.top):
@@ -21,6 +22,7 @@ class PseudoQueue:
         return self.__str__()    
 
     def dequeue(self):
+        """this method is used to remove the first node in the queue"""
         if(self.front_stack.top):
             if(self.back_stack.top):
                 current=self.back_stack.top
