@@ -12,7 +12,7 @@ class PseudoQueue:
         node=Node(value)    
         if(self.front_stack.top):
             if(self.back_stack.top):
-                self.back_stack.push(node)
+                self.back_stack.push(node.value)
             else:    
              node.next=self.front_stack.top
              self.back_stack.top=node
@@ -24,13 +24,15 @@ class PseudoQueue:
         if(self.front_stack.top):
             if(self.back_stack.top):
                 current=self.back_stack.top
-                target=self.front_stack.pop()
+                target=self.front_stack.top.value
                 while(current.next != self.front_stack.top):
                     current=current.next
+                self.front_stack.pop()    
                 current.next=None    
                 self.front_stack.top=current
             else:
-                target=self.front_stack.pop()
+                target=self.front_stack.top.value
+                self.front_stack.top=None
             return target       
         else:
             return "Empty queue"
@@ -38,7 +40,7 @@ class PseudoQueue:
     def __str__(self):
         output=""
 
-        if self.front_stack == None:
+        if self.front_stack.top == None:
             output="Empty Queue"
         else:
             if(self.back_stack.top):
@@ -50,4 +52,4 @@ class PseudoQueue:
             else:
                 output+=f'{self.front_stack.top.value} --> '
             output+=" None"
-        return(output)    
+        return(output)

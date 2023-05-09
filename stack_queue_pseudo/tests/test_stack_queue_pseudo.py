@@ -22,7 +22,7 @@ def test_2():
     tester.dequeue()
     tester.dequeue()
     actual=tester.enqueue("7")
-    expected="3"
+    expected="7 --> 5 --> 4 --> 3 --> None"
     assert actual==expected    
 
 def test_3():
