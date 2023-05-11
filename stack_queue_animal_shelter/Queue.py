@@ -26,7 +26,8 @@ class Queue:
         temp=self.front
         self.front=self.front.next
         temp.next= None
-        return temp.species
+        obj={"name":temp.name,"species":temp.species}
+        return obj
 
     def peek(self):
         if self.front:

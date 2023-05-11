@@ -6,10 +6,15 @@ class AnimalShelter:
         self.shelter=Queue()
 
     def enqueue(self,animal):
+        """this method enqueue to the back of the queuea and takes a node got name and species attributes as an argument"""
         self.shelter.enqueue(animal)
         return self.shelter.__str__()
     
     def dequeue(self,pref="empty"):
+        """this method is dequeue from the queue depending on pref value if no pref provided will dequeue from the 
+        first node in the queue and will return object contains the name and the species of the animal"""
+        if not self.shelter.front:
+            return self.shelter.dequeue()
         if(self.shelter.front.species == pref):
             res={"name":self.shelter.front.name,
                  "species":self.shelter.front.species}
@@ -21,10 +26,12 @@ class AnimalShelter:
             prev=current
             current=current.next
         if(current):
-            if(current==self.shelter.back):
+            if(current==self.shelter.rear):
                 self.shelter.back=prev
             prev.next=current.next
-            return current
+            obj={"name":current.name,"species":current.species}
+            return obj
         else:
+            """this line is for the stech goal"""
             return self.shelter.dequeue()
 
