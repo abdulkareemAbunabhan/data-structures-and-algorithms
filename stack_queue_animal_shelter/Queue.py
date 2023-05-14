@@ -26,7 +26,7 @@ class Queue:
         temp=self.front
         self.front=self.front.next
         temp.next= None
-        obj={"name":temp.name,"species":temp.species}
+        obj={"name":temp.value["name"],"species":temp.value["species"]}
         return obj
 
     def peek(self):
@@ -46,7 +46,7 @@ class Queue:
         else:
             current=self.front
             while(current):
-                output+=f'{current.species} --> '
+                output+=f'{current.value["species"]} --> '
                 current=current.next
             output+=" None"
         return(output)

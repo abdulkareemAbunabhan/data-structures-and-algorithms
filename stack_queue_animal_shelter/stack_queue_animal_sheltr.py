@@ -15,21 +15,21 @@ class AnimalShelter:
         first node in the queue and will return object contains the name and the species of the animal"""
         if not self.shelter.front:
             return self.shelter.dequeue()
-        if(self.shelter.front.species == pref):
-            res={"name":self.shelter.front.name,
-                 "species":self.shelter.front.species}
+        if(self.shelter.front.value["species"] == pref):
+            res={"name":self.shelter.front.value["species"],
+                 "species":self.shelter.front.value["species"]}
             self.shelter.dequeue()
             return res
         current= self.shelter.front
         prev=current
-        while(current is not None and current.species != pref):
+        while(current is not None and current.value["species"] != pref):
             prev=current
             current=current.next
         if(current):
             if(current==self.shelter.rear):
-                self.shelter.back=prev
+                self.shelter.rear=prev
             prev.next=current.next
-            obj={"name":current.name,"species":current.species}
+            obj={"name":current.value["name"],"species":current.value["species"]}
             return obj
         else:
             """this line is for the stech goal"""
