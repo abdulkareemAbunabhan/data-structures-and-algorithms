@@ -7,11 +7,11 @@ representing whether or not the brackets in the string are balanced
 
 ## Whiteboard Process
 
-![whiteBoard](./My_First_Board.jpg)
+![whiteBoard](./Stack_queue_validate_bracket.jpg)
 
 ## Approach & Efficiency
 
-The time complexity of this function is O(n), where n is the length of the input string. This is because the function iterates through each character in the string exactly once and performs constant time operations for each character. Additionally, the worst-case scenario is when all the brackets in the string are balanced, in which case the function will perform n/2 push operations and n/2 pop operations, giving it a space complexity of O(n).
+The validate_brackets function using a stack has a time complexity of O(n), where n is the length of the input string. It iterates through each character in the string and performs stack operations, such as pushing and popping elements, in constant time. The space complexity is also O(n) because the stack can store up to n/2 elements in the worst case scenario.
 
 ## Solution
 
@@ -19,23 +19,24 @@ The time complexity of this function is O(n), where n is the length of the input
 
  ``` python
     def validate_brackets(string):
+    """this function used to check weather a string contains a validate brackets with validate openning and close or 
+    not and return the answer as a boolean"""
     stack = []
+    opening_brackets = ['(', '{', '[']
+    closing_brackets = [')', '}', ']']
+    bracket_pairs = {'(': ')', '{': '}', '[': ']'}
+
     for char in string:
-        if char in ['(', '{', '[']:
+        if char in opening_brackets:
             stack.append(char)
-        else:
+        elif char in closing_brackets:
             if not stack:
                 return False
-            current_char = stack.pop()
-            if current_char == '(':
-                if char != ')':
-                    return False
-            if current_char == '{':
-                if char != '}':
-                    return False
-            if current_char == '[':
-                if char != ']':
-                    return False
+            top = stack[-1]
+            if bracket_pairs[top] != char:
+                return False
+            stack.pop()
+
     if stack:
         return False
     return True
