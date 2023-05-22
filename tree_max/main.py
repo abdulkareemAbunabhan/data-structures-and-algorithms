@@ -1,4 +1,4 @@
-from binary_tree import *
+from tree_max import *
 
 tes=Binary_trees()
 tes.adds("1")
@@ -10,3 +10,4 @@ print(tes.pre_order())
 print(tes.in_order())
 print(tes.post_order())
 print(tes.max)
+print(tes.tree_max())

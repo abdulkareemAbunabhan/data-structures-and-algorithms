@@ -69,8 +69,15 @@ class Binary_trees:
         if(arg is self.root):
             return resu
     def tree_max(self):
-        temp=self.root
-        max=None
-        if(temp):
-            if(max < temp.value or max is None):
-                max=temp.value
+        def reusable_traverse(temp=self.root,max=None):
+            if(temp):
+                if(max is None or max < temp.value):
+                 max=temp.value
+                if(temp.left):
+                 max=reusable_traverse(temp.left,max)
+                if(temp.right):
+                 max=reusable_traverse(temp.right,max)
+                return max
+            else:
+                return "empty tree"       
+        return reusable_traverse()
