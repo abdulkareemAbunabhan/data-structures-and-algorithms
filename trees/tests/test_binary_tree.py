@@ -4,7 +4,7 @@ from binary_tree import *
 def test_1():
     emp=Binary_trees()
     emp2= Binary_search_tree()
-    assert emp.pre_order() == "empty tree"
+    assert emp.pre_order() == []
     assert emp2.in_order() == []
 # 2-Can successfully instantiate a tree with a single root node
 def test_2():

@@ -24,7 +24,7 @@ class Binary_trees:
         
     def pre_order(self,arg=None,resu=None):
         if(self.root is None):
-            return "empty tree"
+            return []
         if(resu is None):
             resu=[]
         if (arg==None):
@@ -67,9 +67,6 @@ class Binary_trees:
             return resu
 
 class Binary_search_tree(Binary_trees):
-    def __init__(self):
-        super().__init__()
-
     def add(self,value,temp=None):
         node=Node(value)
         if(not self.root):
@@ -111,11 +108,3 @@ class Binary_search_tree(Binary_trees):
                 return False
         return False
     
-    def pre_order(self, arg=None, resu=None):
-        return super().pre_order(arg, resu)
-    
-    def in_order(self, arg=None, resu=None):
-        return super().in_order(arg, resu)
-    
-    def post_order(self, arg=None, resu=None):
-        return super().post_order(arg, resu)
