@@ -6,6 +6,7 @@ class Binary_trees:
         self.max=None
 
     def adds(self,value,temp=None):
+        """this method adds nodes to binary tree randomly"""
         node=Node(value)
         if(self.max is None or value > self.max):
             self.max=value    
@@ -26,6 +27,7 @@ class Binary_trees:
                 self.adds(value,temp)    
         
     def pre_order(self,arg=None,resu=None):
+        """this method used to traverse on the tree by ordering the root first then the left leaf then the right"""
         if(self.root is None):
             return []
         if(resu is None):
@@ -42,6 +44,7 @@ class Binary_trees:
                 self.pre_order(arg.right,resu)
 
     def in_order(self,arg=None,resu=None):
+        """this method used to traverse on the tree by ordering the left leaf first then the root then the right"""
         if(resu is None):
             resu = []
         if(arg==None):
@@ -56,6 +59,7 @@ class Binary_trees:
             return resu
     
     def post_order(self,arg=None,resu=None):
+        """this method used to traverse on the tree by ordering the left leaf first then the right leaf then the root"""
         if(arg is None):
             arg = self.root
         if(resu is None):
@@ -69,6 +73,7 @@ class Binary_trees:
         if(arg is self.root):
             return resu
     def tree_max(self):
+        """this method used to traverse on a tree and return the maxmum value in it"""
         def reusable_traverse(temp=self.root,max=None):
             if(temp):
                 if(max is None or max < temp.value):

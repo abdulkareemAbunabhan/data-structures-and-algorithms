@@ -5,6 +5,7 @@ class Binary_trees:
         self.root=None
 
     def adds(self,value,temp=None):
+        """this method adds nodes to binary tree randomly"""
         node=Node(value)
         if(not self.root):
             self.root=node
@@ -23,6 +24,7 @@ class Binary_trees:
                 self.adds(value,temp)    
         
     def pre_order(self,arg=None,resu=None):
+        """this method used to traverse on the tree by ordering the root first then the left leaf then the right"""
         if(self.root is None):
             return []
         if(resu is None):
@@ -39,6 +41,7 @@ class Binary_trees:
                 self.pre_order(arg.right,resu)
 
     def in_order(self,arg=None,resu=None):
+        """this method used to traverse on the tree by ordering the left leaf first then the root then the right"""
         if(resu is None):
             resu = []
         if(arg==None):
@@ -53,6 +56,7 @@ class Binary_trees:
             return resu
     
     def post_order(self,arg=None,resu=None):
+        """this method used to traverse on the tree by ordering the left leaf first then the right leaf then the root"""
         if(arg is None):
             arg = self.root
         if(resu is None):
@@ -68,6 +72,7 @@ class Binary_trees:
 
 class Binary_search_tree(Binary_trees):
     def add(self,value,temp=None):
+        """this method used to add a node on the tree on the left or the the right depending on its value """
         node=Node(value)
         if(not self.root):
             self.root=node
@@ -90,6 +95,7 @@ class Binary_search_tree(Binary_trees):
             return
 
     def contains(self,value,temp=None):
+        """this method used to check if a given value is in the tree or not and return a boolean depending on it"""
         if(not self.root):
             return "empty tree"
         if(temp == None):
