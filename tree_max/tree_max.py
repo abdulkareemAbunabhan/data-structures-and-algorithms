@@ -3,10 +3,13 @@ from node import Node
 class Binary_trees:
     def __init__(self):
         self.root=None
+        self.max=None
 
     def adds(self,value,temp=None):
         """this method adds nodes to binary tree randomly"""
         node=Node(value)
+        if(self.max is None or value > self.max):
+            self.max=value    
         if(not self.root):
             self.root=node
             return
@@ -69,48 +72,17 @@ class Binary_trees:
             resu.append(arg.value)
         if(arg is self.root):
             return resu
-
-class Binary_search_tree(Binary_trees):
-    def add(self,value,temp=None):
-        """this method used to add a node on the tree on the left or the the right depending on its value """
-        node=Node(value)
-        if(not self.root):
-            self.root=node
-            return
-        if(temp==None):
-            temp=self.root
-        if(value>temp.value):
-            if(temp.right):
-                return self.add(value,temp.right)
+    def tree_max(self):
+        """this method used to traverse on a tree and return the maxmum value in it"""
+        def reusable_traverse(temp=self.root,max=None):
+            if(temp):
+                if(max is None or max < temp.value):
+                 max=temp.value
+                if(temp.left):
+                 max=reusable_traverse(temp.left,max)
+                if(temp.right):
+                 max=reusable_traverse(temp.right,max)
+                return max
             else:
-                temp.right=node
-                return
-        elif(value<temp.value):
-            if(temp.left):
-                return self.add(value,temp.left)
-            else:
-                temp.left=node
-                return
-        else:
-            return
-
-    def contains(self,value,temp=None):
-        """this method used to check if a given value is in the tree or not and return a boolean depending on it"""
-        if(not self.root):
-            return "empty tree"
-        if(temp == None):
-            temp = self.root
-        if(temp.value==value):
-            return True
-        elif(value<temp.value):
-            if(temp.left):
-             return self.contains(value,temp.left)
-            else:
-                return False
-        else:
-            if(temp.right):
-             return self.contains(value,temp.right)
-            else:
-                return False
-        return False
-    
+                return "empty tree"       
+        return reusable_traverse()
