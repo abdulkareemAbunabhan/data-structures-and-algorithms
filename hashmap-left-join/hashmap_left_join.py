@@ -4,7 +4,6 @@ def left_join(first_hashmap,second_hashmap):
     if first_hashmap == {}:
         return result
     else:
-
         for i in first_hashmap:
             if i in second_hashmap:
                 result.append([i,first_hashmap[i],second_hashmap[i]])
