@@ -1,12 +1,10 @@
-def left_join(first_hashmap,second_hashmap):
-    """this function is responsible on doing left join on two hash tables and return the result is list of lists"""
-    result=[]
-    if first_hashmap == {}:
-        return result
-    else:
-        for i in first_hashmap:
-            if i in second_hashmap:
-                result.append([i,first_hashmap[i],second_hashmap[i]])
-            else:
-                result.append([i,first_hashmap[i],None])
-        return result
+def left_join(first_hashmap, second_hashmap):
+    """this function is responsible for doing left join on two hash tables and returning the result as a list of lists"""
+    result = []
+    
+    for key in first_hashmap.AllKeys():
+        value = first_hashmap.GetKeyValue(key)
+        antonym_value = second_hashmap.GetKeyValue(key)
+        result.append([key, value, antonym_value])
+        
+    return result
