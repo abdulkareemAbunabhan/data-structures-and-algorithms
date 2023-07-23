@@ -1,4 +1,5 @@
 import pytest
+from hasher import *
 from hashmap_left_join import left_join
 from hash_table import *
 def test_left_join():

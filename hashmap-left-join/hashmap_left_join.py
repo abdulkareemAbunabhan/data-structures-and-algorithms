@@ -1,3 +1,4 @@
+
 def left_join(first_hashmap, second_hashmap):
     """this function is responsible for doing left join on two hash tables and returning the result as a list of lists"""
     result = []
